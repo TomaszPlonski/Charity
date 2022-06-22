@@ -3,8 +3,22 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
-<%--include head oraz górnego menu. Zawiera otwarcie tagu <body>--%>
-<%@include file="fragments/header-main-page.jsp"%>
+<%--include head--%>
+<%@include file="fragments/head.jsp"%>
+
+<header class="header--main-page">
+    <%--include nav--%>
+    <%@include file="fragments/nav.jsp"%>
+
+    <div class="slogan container container--90">
+        <div class="slogan--item">
+            <h1>
+                Zacznij pomagać!<br/>
+                Oddaj niechciane rzeczy w zaufane ręce
+            </h1>
+        </div>
+    </div>
+</header>
 
 
 <section class="stats">
