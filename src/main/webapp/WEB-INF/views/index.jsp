@@ -92,19 +92,20 @@
         <ul class="help--slides-items">
 
             <c:forEach items="${homeInfo.institutions}" var="insitition" varStatus="status" >
-                <c:if test="${status.index%2==0}">
+                <c:if test="${status.index % 2 == 0}">
                 <li>
                 </c:if>
                     <div class="col">
                         <div class="title">${insitition.name}</div>
                         <div class="subtitle">${insitition.description}</div>
                     </div>
-                <c:if test="${status.last}">
-                    <div class="col">
+                <c:if test="${status.last && status.index % 2 == 0}">
+                    <div class="col" style="visibility: hidden">
                     </div>
+                    </li>
                 </c:if>
 
-                <c:if test="${status.index%2!=0}">
+                <c:if test="${status.index% 2 != 0}">
                 </li>
                 </c:if>
             </c:forEach>
