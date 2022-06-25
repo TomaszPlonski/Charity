@@ -6,6 +6,7 @@
 <%--include head--%>
 <%@include file="fragments/head.jsp"%>
 
+<body>
 <header class="header--main-page">
     <%--include nav--%>
     <%@include file="fragments/nav.jsp"%>
