@@ -4,12 +4,12 @@
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 
 <%--include head--%>
-<%@include file="fragments/head.jsp"%>
+<%@include file="../fragments/head.jsp"%>
 <body>
 <header class="header--form-page">
 
     <%--include nav--%>
-    <%@include file="fragments/nav.jsp"%>
+    <%@include file="../fragments/nav.jsp"%>
 
     <div class="slogan container container--90">
         <h2>
@@ -21,4 +21,4 @@
 
 
 <%--include footera --%>
-<jsp:include page="fragments/footer.jsp"/>
+<jsp:include page="../fragments/footer.jsp"/>
