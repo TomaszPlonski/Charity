@@ -5,8 +5,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import pl.coderslab.charity.service.HomeService.HomeService;
-import pl.coderslab.charity.service.HomeService.HomeServicePOJO;
+import pl.coderslab.charity.service.home.HomeService;
+import pl.coderslab.charity.service.home.HomeServiceImpl;
 
 @Slf4j
 @Controller

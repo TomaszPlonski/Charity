@@ -1,4 +1,4 @@
-package pl.coderslab.charity.service.HomeService;
+package pl.coderslab.charity.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -12,7 +12,7 @@ import java.util.List;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-public class HomeServicePOJO {
+public class HomeDto {
 
     List<Institution> institutions;
 
