@@ -3,8 +3,6 @@
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags" %>
 <%@ taglib prefix = "fmt" uri = "http://java.sun.com/jsp/jstl/fmt" %>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-<fmt:formatDate value="${form.pickUpDate}" pattern="yyyy-MM-dd" var="date"/>
-<fmt:formatDate value="${form.pickUpTime}" pattern="hh:mm:ss" var="time"/>
 
 <%--include head--%>
 <%@include file="../fragments/head.jsp"%>
