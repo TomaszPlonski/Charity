@@ -1,12 +1,10 @@
 package pl.coderslab.charity.model;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import javax.persistence.*;
 
+@EqualsAndHashCode
 @Getter @Setter
 @Entity
 @NoArgsConstructor
