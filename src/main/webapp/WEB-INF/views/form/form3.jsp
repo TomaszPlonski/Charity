@@ -64,8 +64,7 @@
                     <div class="form-group form-group--checkbox">
                         <label>
                             <form:radiobutton path="institution"
-                                              value="${institution}"
-                                              checked="${form.institution.name == institution.name ? 'checked' : '' }"/>
+                                              value="${institution}"/>
                             <span class="checkbox radio"></span>
                             <span class="description">
                                 <div class="title">${institution.name}</div>
