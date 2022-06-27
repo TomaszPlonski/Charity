@@ -32,10 +32,14 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
+
+//        String[] staticResources = {"/css/**","/images/**"};
+
         http
                 .authorizeRequests()
-                .antMatchers( "/login","/").permitAll()
-                .antMatchers("/form").authenticated()
+//                .antMatchers( "/","/login").permitAll()
+                .antMatchers("/","/**").authenticated()
+//                .antMatchers(staticResources).permitAll()
                 .and()
                 .csrf()
                 .disable()
