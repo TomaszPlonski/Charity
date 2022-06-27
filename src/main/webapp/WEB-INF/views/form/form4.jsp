@@ -83,23 +83,15 @@
                         <h4>Termin odbioru</h4>
 
                         <div class="form-group form-group--inline">
-                            <label> Data <input type="date" name="pickUpDate" /> </label>
+                            <label> Data
+                                <form:input type="date" path="pickUpDate" />
+                            </label>
                         </div>
-
                         <div class="form-group form-group--inline">
-                            <label> Godzina <input type="time" name="pickUpTime" /> </label>
+                            <label> Godzina
+                                <form:input type="time" path="pickUpTime" />
+                            </label>
                         </div>
-
-<%--                        <div class="form-group form-group--inline">--%>
-<%--                            <label> Data--%>
-<%--                                <form:input path="pickUpDate" value="${date}"/>--%>
-<%--                            </label>--%>
-<%--                        </div>--%>
-<%--                        <div class="form-group form-group--inline">--%>
-<%--                            <label> Godzina--%>
-<%--                                <form:input path="pickUpTime" value="${time}"/>--%>
-<%--                            </label>--%>
-<%--                        </div>--%>
 
                         <div class="form-group form-group--inline">
                             <label>

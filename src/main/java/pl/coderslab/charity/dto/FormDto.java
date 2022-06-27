@@ -1,6 +1,7 @@
 package pl.coderslab.charity.dto;
 
 import lombok.*;
+import org.springframework.format.annotation.DateTimeFormat;
 import pl.coderslab.charity.model.Category;
 import pl.coderslab.charity.model.Institution;
 
@@ -29,6 +30,7 @@ public class FormDto {
 
     String zipCode;
 
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     LocalDate pickUpDate;
 
     LocalTime pickUpTime;
