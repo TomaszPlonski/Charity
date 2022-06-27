@@ -6,12 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
-import pl.coderslab.charity.dto.CategoryDto;
 import pl.coderslab.charity.dto.FormDto;
 import pl.coderslab.charity.service.form.FormService;
 
 import javax.validation.Valid;
-import java.util.List;
 
 @SessionAttributes("form")
 @Slf4j
@@ -70,6 +68,7 @@ public class DonationController {
     @PostMapping(params = "form5Submit")
     public String form5Submit(@Valid @ModelAttribute("form") FormDto form,
                               BindingResult bindingResult){
+        formService.saveForm(form);
         return "form/form-confirmation";
     }
     @PostMapping(params = "form5Back")
