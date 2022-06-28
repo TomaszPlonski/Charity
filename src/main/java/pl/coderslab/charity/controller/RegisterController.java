@@ -28,7 +28,7 @@ public class RegisterController {
     @PostMapping("/register")
     public String registerPost(@Valid @ModelAttribute("register") RegisterDto register,
                                BindingResult bindingResult) {
-        registerService.saveNewNotConfirmedUser(register);
+        registerService.registerNewUser(register);
 
         return "register-confirmation";
     }

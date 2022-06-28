@@ -13,7 +13,7 @@
 
     <div class="slogan container container--90">
         <h2>
-            Konto utworzone. Proszę się zalogować.
+            Wysłano maila weryfikującego. By dokończyć proces rejestracji kliknij w link z maila.
         </h2>
     </div>
 </header>
