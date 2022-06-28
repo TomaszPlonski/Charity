@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.charity.dto.RegisterDto;
+import pl.coderslab.charity.service.register.RegisterService;
 import pl.coderslab.charity.service.register.RegisterServiceImpl;
 
 import javax.validation.Valid;
@@ -16,7 +17,7 @@ import javax.validation.Valid;
 @Controller
 public class RegisterController {
 
-    private final RegisterServiceImpl registerService;
+    private final RegisterService registerService;
 
     @GetMapping("/register")
     public String register(Model model) {
