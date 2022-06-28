@@ -10,4 +10,6 @@ public interface RegisterService {
     NotConfirmedUser saveNewNotConfirmedUser(RegisterDto register);
 
     void sentVerificationEmail(NotConfirmedUser notConfirmedUser);
+
+    boolean verification(String token, Long lifeTimeInMinutes);
 }

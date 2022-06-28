@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.charity.dto.RegisterDto;
 import pl.coderslab.charity.service.register.RegisterService;
@@ -31,6 +32,16 @@ public class RegisterController {
         registerService.registerNewUser(register);
 
         return "register-confirmation";
+    }
+
+    @GetMapping("/ver/{token}")
+    public String verify(@PathVariable String token, Model model) {
+            try{
+                registerService.verification(token,1L);
+            } catch (IllegalArgumentException e){
+                return "404";
+            }
+        return "register-finished";
     }
 
 }
