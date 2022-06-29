@@ -56,7 +56,7 @@
                             <li>
                                 <span class="icon icon-bag"></span>
                                 <span class="summary--text"
-                                >${form.quantity} worków darów</span>
+                                ><c:out value="${form.quantity} worków darów"/></span>
                             </li>
 
                             <li>
@@ -72,9 +72,9 @@
                         <div class="form-section--column">
                             <h4>Adres odbioru:</h4>
                             <ul>
-                                <li>${form.street}</li>
-                                <li>${form.city}</li>
-                                <li>${form.zipCode}</li>
+                                <li><c:out value="${form.street}"/></li>
+                                <li><c:out value="${form.city}"/></li>
+                                <li><c:out value="${form.zipCode}"/></li>
                             </ul>
                         </div>
 
@@ -89,7 +89,7 @@
                                             Brak uwag
                                         </c:when>
                                         <c:otherwise>
-                                            ${form.pickUpComment}
+                                       <c:out value="${form.pickUpComment}"/>
                                         </c:otherwise>
                                     </c:choose>
                                 </li>
