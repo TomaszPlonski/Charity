@@ -2,6 +2,7 @@ package pl.coderslab.charity.service.register;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 import pl.coderslab.charity.dto.RegisterDto;
@@ -19,6 +20,9 @@ import java.util.UUID;
 @Service
 @RequiredArgsConstructor
 public class RegisterServiceImpl implements RegisterService{
+
+    @Value("${token.lifespan}")
+    private Long tokenLifeSpan;
 
     private final NotConfirmedUserRepository notConfirmedUserRepository;
     private final BCryptPasswordEncoder passwordEncoder;
@@ -54,11 +58,11 @@ public class RegisterServiceImpl implements RegisterService{
 
     @Transactional
     @Override
-    public boolean verification(String token, Long lifeSpanInMinutes){
+    public boolean verification(String token){
         NotConfirmedUser notConfirmedUser = notConfirmedUserRepository.findByToken(token)
                 .orElseThrow(()-> new IllegalArgumentException("No such token"));
 
-        if(isTokenAlive(notConfirmedUser.getCreatedOn(),lifeSpanInMinutes)){
+        if(isTokenAlive(notConfirmedUser.getCreatedOn())){
             saveNewUser(notConfirmedUser);
             deleteVerifyNotConfirmedUser(notConfirmedUser);
             return true;
@@ -68,8 +72,8 @@ public class RegisterServiceImpl implements RegisterService{
 
     }
 
-    public boolean isTokenAlive(LocalDateTime createdOn, Long lifeSpanInMinutes){
-        return LocalDateTime.now().isBefore(createdOn.plusMinutes(lifeSpanInMinutes));
+    public boolean isTokenAlive(LocalDateTime createdOn){
+        return LocalDateTime.now().isBefore(createdOn.plusMinutes((tokenLifeSpan)));
     }
 
     public void saveNewUser(NotConfirmedUser notConfirmedUser){

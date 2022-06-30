@@ -11,5 +11,5 @@ public interface RegisterService {
 
     void sentVerificationEmail(NotConfirmedUser notConfirmedUser);
 
-    boolean verification(String token, Long lifeTimeInMinutes);
+    boolean verification(String token);
 }

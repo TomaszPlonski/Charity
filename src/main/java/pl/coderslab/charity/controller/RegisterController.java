@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import pl.coderslab.charity.dto.RegisterDto;
 import pl.coderslab.charity.service.register.RegisterService;
-import pl.coderslab.charity.service.register.RegisterServiceImpl;
 
 import javax.validation.Valid;
 
@@ -37,7 +36,7 @@ public class RegisterController {
     @GetMapping("/ver/{token}")
     public String verify(@PathVariable String token, Model model) {
             try{
-                registerService.verification(token,1L);
+                registerService.verification(token);
             } catch (IllegalArgumentException e){
                 return "404";
             }
