@@ -28,6 +28,10 @@ public class RegisterController {
     @PostMapping("/register")
     public String registerPost(@Valid @ModelAttribute("register") RegisterDto register,
                                BindingResult bindingResult) {
+
+        if (bindingResult.hasErrors()) {
+            return "register";
+        }
         registerService.registerNewUser(register);
 
         return "register-confirmation";

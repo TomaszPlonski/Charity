@@ -18,13 +18,15 @@
         <div class="form-group">
             <form:input path="email" type="email" placeholder="Email"/>
             <form:errors path="email"/>
+            <form:errors path="email"/>
         </div>
         <div class="form-group">
             <form:input path="password" type="password" placeholder="Hasło"/>
+            <form:errors path="password"/>
         </div>
         <div class="form-group">
             <form:input path="password2" type="password" placeholder="Powtórz hasło"/>
-            <form:errors path="password"/>
+            <form:errors path=""/>
         </div>
 
         <div class="form-group form-group--buttons">

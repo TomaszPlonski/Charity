@@ -18,7 +18,7 @@ public class NotConfirmedUser {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 60)
+    @Column(nullable = false, length = 60, unique = true)
     private String email;
 
     private String password;
