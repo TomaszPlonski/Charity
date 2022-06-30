@@ -67,6 +67,7 @@
                     </label>
                 </div>
                 </c:forEach>
+                <form:errors path="categories"/>
 
                 <div class="form-group form-group--buttons">
                     <form:button name="form1Submit" class="btn next-step">Dalej</form:button>

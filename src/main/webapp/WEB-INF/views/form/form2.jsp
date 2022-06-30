@@ -62,7 +62,8 @@
                 <div class="form-group form-group--inline">
                     <label>
                         Liczba 60l worków:
-                        <form:input path="quantity"/>
+                        <form:input path="quantity" type="number"/>
+                        <form:errors path="quantity"/>
                     </label>
                 </div>
 

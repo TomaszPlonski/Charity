@@ -62,18 +62,21 @@
                         <div class="form-group form-group--inline">
                             <label> Ulica 
                                 <form:input path="street"/>
+                                <form:errors path="street"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label> Miasto
                                 <form:input path="city"/>
+                                <form:errors path="city"/>
                             </label>
                         </div>
 
                         <div class="form-group form-group--inline">
                             <label>Kod Pocztowy
                                 <form:input path="zipCode"/>
+                                <form:errors path="zipCode"/>
                             </label>
                         </div>
 
@@ -85,11 +88,13 @@
                         <div class="form-group form-group--inline">
                             <label> Data
                                 <form:input type="date" path="pickUpDate" />
+                                <form:errors path="pickUpDate"/>
                             </label>
                         </div>
                         <div class="form-group form-group--inline">
                             <label> Godzina
                                 <form:input type="time" path="pickUpTime" />
+                                <form:errors path="pickUpTime"/>
                             </label>
                         </div>
 

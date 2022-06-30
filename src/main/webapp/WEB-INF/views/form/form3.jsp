@@ -74,7 +74,7 @@
                     </div>
                 </c:forEach>
 
-
+                <form:errors path="institution"/>
                 <div class="form-group form-group--buttons">
                     <form:button name="form3Back" class="btn next-step">Wstecz</form:button>
                     <form:button name="form3Submit" class="btn next-step">Dalej</form:button>
