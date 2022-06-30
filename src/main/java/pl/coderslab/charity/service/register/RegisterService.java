@@ -5,11 +5,9 @@ import pl.coderslab.charity.model.NotConfirmedUser;
 
 public interface RegisterService {
 
-    void registerNewUser(RegisterDto registerDto);
-
-    NotConfirmedUser saveNewNotConfirmedUser(RegisterDto register);
-
-    void sentVerificationEmail(NotConfirmedUser notConfirmedUser);
+    void sentEmailIfAvailable(RegisterDto registerDto);
 
     boolean verification(String token);
+
+
 }

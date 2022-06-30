@@ -32,7 +32,7 @@ public class RegisterController {
         if (bindingResult.hasErrors()) {
             return "register";
         }
-        registerService.registerNewUser(register);
+        registerService.sentEmailIfAvailable(register);
 
         return "register-confirmation";
     }

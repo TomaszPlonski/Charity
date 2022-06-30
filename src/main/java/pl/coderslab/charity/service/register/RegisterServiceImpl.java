@@ -29,13 +29,11 @@ public class RegisterServiceImpl implements RegisterService{
     private final EmailSenderService emailSenderService;
     private final UserRepository userRepository;
 
-    @Override
-    public void registerNewUser(RegisterDto registerDto){
+    private void registerNewUser(RegisterDto registerDto){
         sentVerificationEmail(saveNewNotConfirmedUser(registerDto));
     }
 
-    @Override
-    public NotConfirmedUser saveNewNotConfirmedUser(RegisterDto register){
+    private NotConfirmedUser saveNewNotConfirmedUser(RegisterDto register){
         return notConfirmedUserRepository.save(NotConfirmedUser.builder()
                         .email(register.getEmail())
                         .password(passwordEncoder.encode(register.getPassword()))
@@ -44,12 +42,11 @@ public class RegisterServiceImpl implements RegisterService{
                         .build());
     }
 
-    public String generateToken(){
+    private String generateToken(){
         return UUID.randomUUID().toString();
     }
 
-    @Override
-    public void sentVerificationEmail(NotConfirmedUser notConfirmedUser){
+    private void sentVerificationEmail(NotConfirmedUser notConfirmedUser){
         emailSenderService.sendEmail(notConfirmedUser.getEmail(),
                 "Charity app - verify your email",
                 "To end registration on charity app please click on this link: "
@@ -72,11 +69,11 @@ public class RegisterServiceImpl implements RegisterService{
 
     }
 
-    public boolean isTokenAlive(LocalDateTime createdOn){
+    private boolean isTokenAlive(LocalDateTime createdOn){
         return LocalDateTime.now().isBefore(createdOn.plusMinutes((tokenLifeSpan)));
     }
 
-    public void saveNewUser(NotConfirmedUser notConfirmedUser){
+    private void saveNewUser(NotConfirmedUser notConfirmedUser){
         userRepository.save(UserEntity.builder()
                         .email(notConfirmedUser.getEmail())
                         .role(notConfirmedUser.getRole())
@@ -85,10 +82,26 @@ public class RegisterServiceImpl implements RegisterService{
                         .build());
     }
 
-    public void deleteVerifyNotConfirmedUser(NotConfirmedUser notConfirmedUser){
+    private void deleteVerifyNotConfirmedUser(NotConfirmedUser notConfirmedUser){
         notConfirmedUserRepository.delete(notConfirmedUser);
     }
 
+    private boolean isEmailAvailable(String email){
+         if (userRepository.findByEmail(email) == null){
+             NotConfirmedUser notConfirmedUser = notConfirmedUserRepository.findByEmail(email);
+             if (notConfirmedUser != null){
+                 return !isTokenAlive(notConfirmedUser.getCreatedOn());
+             }
+             return true;
+         }
+         return false;
+    }
 
+    @Override
+    public void sentEmailIfAvailable(RegisterDto registerDto){
+        if(isEmailAvailable(registerDto.getEmail())){
+            registerNewUser(registerDto);
+        }
+    }
 
 }

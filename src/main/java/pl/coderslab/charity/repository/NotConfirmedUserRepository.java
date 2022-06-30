@@ -8,4 +8,6 @@ import java.util.Optional;
 public interface NotConfirmedUserRepository extends JpaRepository<NotConfirmedUser,Long> {
 
     Optional<NotConfirmedUser> findByToken(String token);
+
+    NotConfirmedUser findByEmail(String email);
 }
