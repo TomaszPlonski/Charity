@@ -38,9 +38,19 @@ public class RegisterController {
             try{
                 registerService.verification(token);
             } catch (IllegalArgumentException e){
-                return "404";
+                return "redirect:/404";
             }
+        return "redirect:/verification";
+    }
+
+    @GetMapping("/verification")
+    public String verificationSuccess(){
         return "register-finished";
+    }
+
+    @GetMapping("/404")
+    public String verificationFail(){
+        return "404";
     }
 
 }
