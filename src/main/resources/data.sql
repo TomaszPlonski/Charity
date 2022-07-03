@@ -1,5 +1,5 @@
 insert into users(id, enabled, password, role, email)
-VALUES (2,1,'$2a$10$BB5a363ESgOZ8JKbOch0rupghu5FQGfCXWBtB4suzdCWyL19aLj9G','ROLE_OFFICE','office@office.com');
+VALUES (2,1,'$2a$10$eLKiTpIq.PChT07fGZfvBOBXqXQvpBMRAs2LxWIijOpvOFUQAfH5W','ROLE_TEST','test@test.com');
 
 insert ignore into categories(id, name) VALUES (1, 'pluszaki');
 insert ignore into categories(id, name) VALUES (2, 'odzież');
