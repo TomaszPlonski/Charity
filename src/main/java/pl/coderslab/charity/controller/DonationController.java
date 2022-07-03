@@ -81,7 +81,7 @@ public class DonationController {
 
     @PostMapping(params = "form5Submit")
     public String form5Submit(@ModelAttribute("form") FormDto form){
-        formService.saveForm(form);
+        formService.donationSuccess(form);
         return "form/form-confirmation";
     }
     @PostMapping(params = "form5Back")

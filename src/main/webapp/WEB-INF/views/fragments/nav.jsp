@@ -27,6 +27,6 @@
 <sec:authorize access="isAuthenticated()">
         <li><a href="/form" class="btn btn--without-border">Przekaż dary</a></li>
 </sec:authorize>
-        <li><a href="/#contant" class="btn btn--without-border">Kontakt</a></li>
+        <li><a href="/#contact" class="btn btn--without-border">Kontakt</a></li>
     </ul>
 </nav>
