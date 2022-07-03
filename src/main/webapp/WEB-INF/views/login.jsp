@@ -23,9 +23,9 @@
         </div>
 
         <div class="form-group form-group--buttons">
-            <a href="/register" class="btn btn--without-border">Załóż konto</a>
             <button class="btn" type="submit">Zaloguj się</button>
             <input type="hidden" name="${_csrf.parameterName}" value="${_csrf.token}"/>
+            <a href="/register" class="btn btn--without-border">Załóż konto</a>
         </div>
     </form>
 </section>

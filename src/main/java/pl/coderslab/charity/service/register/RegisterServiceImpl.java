@@ -21,7 +21,7 @@ import java.util.UUID;
 @RequiredArgsConstructor
 public class RegisterServiceImpl implements RegisterService{
 
-    @Value("${token.lifespan}")
+    @Value("${token.minutesOfLifespan}")
     private Long tokenLifeSpan;
 
     private final NotConfirmedUserRepository notConfirmedUserRepository;
@@ -42,11 +42,11 @@ public class RegisterServiceImpl implements RegisterService{
                         .build());
     }
 
-    private String generateToken(){
+    protected String generateToken(){
         return UUID.randomUUID().toString();
     }
 
-    private void sentVerificationEmail(NotConfirmedUser notConfirmedUser){
+    protected void sentVerificationEmail(NotConfirmedUser notConfirmedUser){
         emailSenderService.sendEmail(notConfirmedUser.getEmail(),
                 "Charity app - verify your email",
                 "To end registration on charity app please click on this link: "
